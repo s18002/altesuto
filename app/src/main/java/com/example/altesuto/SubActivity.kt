@@ -13,5 +13,7 @@ class SubActivity : AppCompatActivity() {
         returnButton.setOnClickListener {
             finish()
         }
+       // val intent = getIntent()
+       // val message = intent.extras?.getString(MainActivity.EXTRA_MESSAGE)?:""
     }
 }
