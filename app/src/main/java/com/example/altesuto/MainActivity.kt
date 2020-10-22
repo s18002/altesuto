@@ -22,10 +22,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
+
+            val countresult = count + count2 + count3 + count4 + count5 + count6
+            intent.putExtra("test", countresult)
+
             startActivity(intent)
         }
+
         //泡盛のカウント動作
         val button = findViewById<Button>(R.id.count_button)
         val textView = findViewById<TextView>(R.id.count_text)
@@ -103,7 +110,6 @@ class MainActivity : AppCompatActivity() {
             count6 -= 1
             textView6.text = count6.toString()
         }
-
 
     }
 }

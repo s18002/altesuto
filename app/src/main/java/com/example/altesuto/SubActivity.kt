@@ -11,6 +11,9 @@ class SubActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
 
+        val sake = intent.getIntExtra("test", 0)
+        textView8.setText(sake.toString())
+
         returnButton.setOnClickListener {
             finish()
         }
