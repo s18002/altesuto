@@ -11,10 +11,6 @@ import kotlin.math.E
 
 class MainActivity : AppCompatActivity() {
 
-    //companion object {
-    //    const val EXTRA_MESSAGE = "com.example.altesuto.MESSAGE"
-    //}
-
     private var count: Int = 0
     private var count2: Int = 0
     private var count3: Int = 0
@@ -28,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
-           // intent.putExtra(EXTRA_MESSAGE, count_text)
             startActivity(intent)
         }
         //泡盛のカウント動作
