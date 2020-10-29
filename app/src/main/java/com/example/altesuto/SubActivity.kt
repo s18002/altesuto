@@ -2,6 +2,7 @@ package com.example.altesuto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_sub.*
 
@@ -19,5 +20,9 @@ class SubActivity : AppCompatActivity() {
         }
         // val intent = getIntent()
         // val message = intent.extras?.getString(MainActivity.EXTRA_MESSAGE)?:""
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 }

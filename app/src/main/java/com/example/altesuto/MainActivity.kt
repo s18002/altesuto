@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.util.Log
+import android.view.Menu
 import android.widget.Button
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,18 +19,23 @@ class MainActivity : AppCompatActivity() {
     private var count5: Int = 0
     private var count6: Int = 0
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        //純アルコール量（ｇ）÷（体重×0.1）＝アルコール処理に要する時間
 
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
 
-            val countresult = count + count2 + count3 + count4 + count5 + count6
+            val countresult = (18/7*count)/*泡盛 体重*0.1 */ + (16/7*count2)/*ビール*/ + (22/7*count3)/*チューハイ*/ +
+                    (22/7*count4)/*ハイボール*/ + (11/7*count5)/*ワイン*/ + (21/7*count6)/*日本酒*/
             intent.putExtra("test", countresult)
-
             startActivity(intent)
         }
 
@@ -111,6 +117,11 @@ class MainActivity : AppCompatActivity() {
             textView6.text = count6.toString()
         }
 
+    }
+
+    fun onCreateOptionMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 }
 /*
