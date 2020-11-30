@@ -1,14 +1,15 @@
 package com.example.altesuto
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.content.Intent
-import android.util.Log
+import android.os.Bundle
+import android.os.SystemClock
 import android.view.Menu
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.E
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +38,21 @@ class MainActivity : AppCompatActivity() {
                     (22/7*count4)/*ハイボール*/ + (11/7*count5)/*ワイン*/ + (21/7*count6)/*日本酒*/
             intent.putExtra("test", countresult)
             startActivity(intent)
+        }
+
+        rstbutton.setOnClickListener {
+            count = 0
+            count_text.text = count.toString()
+            count2 = 0
+            count_text2.text = count2.toString()
+            count3 = 0
+            count_text3.text = count3.toString()
+            count4 = 0
+            count_text4.text = count4.toString()
+            count5 = 0
+            count_text5.text = count5.toString()
+            count6 = 0
+            count_text6.text = count6.toString()
         }
 
         //泡盛のカウント動作
@@ -117,11 +133,6 @@ class MainActivity : AppCompatActivity() {
             textView6.text = count6.toString()
         }
 
-    }
-
-    fun onCreateOptionMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
     }
 }
 /*
