@@ -15,7 +15,7 @@ class SubActivity : AppCompatActivity() {
         var isRunning = true   // 本誌だとスタート、ストップを一つのボタンで行うから必要とあったからいらないかも
         override fun onTick(millisUntilFinished: Long) {     // millisUntilFinishedは残り時間をミリ秒で表した数値
             val hour = millisUntilFinished / 1000L / 3600L   // 時間を算出する記述　Lがなんなのかわからん・・・
-            val minute = millisUntilFinished / 1000L % 60L   // 分
+            val minute = millisUntilFinished / 1000L / 3600L   // 分
             val second = millisUntilFinished / 1000L % 60L   // 秒
             textView8.text = "%1d:%2$02d:%3$02d".format(hour, minute, second)
             // テキストに時間：分：秒と表示するための記述
