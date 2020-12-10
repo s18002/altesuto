@@ -5,4 +5,10 @@
     <item
         android:id="@+id/account"
         android:title="アカウント" />
+    <item
+        android:id="@+id/input"
+        android:title="お酒入力" />
+    <item
+        android:id="@+id/time"
+        android:title="残り時間" />
 </menu>

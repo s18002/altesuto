@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -24,6 +25,16 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item?.itemId) {
+            R.id.input -> {(
+                    "file:app/src/main/java/com/example/altesuto/MainActivity.kt"
+                    )
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +45,8 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
 
-            val countresult = (18/7*count)/*泡盛 体重*0.1 */ + (16/7*count2)/*ビール*/ + (22/7*count3)/*チューハイ*/ +
-                    (22/7*count4)/*ハイボール*/ + (11/7*count5)/*ワイン*/ + (21/7*count6)/*日本酒*/
+            val countresult =((18*count)/*泡盛 */ + (16*count2)/*ビール*/ + (22*count3)/*チューハイ*/ +
+                    (22*count4)/*ハイボール*/ + (11*count5)/*ワイン*/ + (21*count6)/*日本酒*/) / 7 /*体重(70kg*0.1)*/
             intent.putExtra("test", countresult)
             startActivity(intent)
         }
