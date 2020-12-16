@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : AppCompatActivity() {
 
     private var count: Int = 0
@@ -25,12 +24,15 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean{
         when(item?.itemId) {
-            R.id.input -> {(
-                    "file:app/src/main/java/com/example/altesuto/MainActivity.kt"
-                    )
-                return true
+            R.id.input -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.time -> {
+                val intent = Intent(this, SubActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -146,12 +148,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-/*
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-}
- */

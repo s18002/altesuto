@@ -1,9 +1,11 @@
 package com.example.altesuto
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_sub.*
 
@@ -25,6 +27,20 @@ class SubActivity : AppCompatActivity() {
         override fun onFinish() {               // タイマー終了時に呼び出されるメソッド　ここにタイマー終了サウンド処理とか記述する
             textView8.text = "0:00:00"
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean{
+        when(item?.itemId) {
+            R.id.input -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.time -> {
+                val intent = Intent(this, SubActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
