@@ -10,7 +10,6 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_sub.*
 
 class SubActivity : AppCompatActivity() {
-
     inner class MycountDownTimer(millisInFuture: Long,           // millisInFutureはタイマーの残り時間をミリ秒で指定する
                                  countDownInterval: Long) :      // countDownIntervalは後述のonTickメソッドを実行する間隔をミリ秒で指定する
         CountDownTimer(millisInFuture, countDownInterval) {
@@ -28,7 +27,6 @@ class SubActivity : AppCompatActivity() {
             textView8.text = "0:00:00"
         }
     }
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean{
         when(item?.itemId) {
             R.id.input -> {
@@ -42,20 +40,16 @@ class SubActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
-
-    val sake = intent.getIntExtra("test", 0)
+        val sake = intent.getFloatExtra("test", 0f)
         textView8.setText(sake.toString())
-
         returnButton.setOnClickListener {
             finish()
         }
-
         textView8.text = "${sake}:00:00"
-        val timer = MycountDownTimer(sake * 3600 * 1000L, 100)
+        val timer = MycountDownTimer((sake * 3600 * 1000).toLong(), 100)
         // タイマーの継続時間としてn時間、onTickが呼ばれる間隔として0.1秒(100て書いてるやつ)
         // ちなみにn分だとn * 60 * 1000となる
         // ここよくわからんかった　記述するのはtimer.isRunning()の方かも
@@ -66,5 +60,4 @@ class SubActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
 }

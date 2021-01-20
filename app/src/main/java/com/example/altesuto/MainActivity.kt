@@ -2,10 +2,8 @@ package com.example.altesuto
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean{
+    override fun onOptionsItemSelected(item: MenuItem): Boolean{
         when(item?.itemId) {
             R.id.input -> {
                 val intent = Intent(this, MainActivity::class.java)
@@ -47,9 +45,19 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
 
-            val countresult =((18*count)/*泡盛 */ + (16*count2)/*ビール*/ + (22*count3)/*チューハイ*/ +
-                    (22*count4)/*ハイボール*/ + (11*count5)/*ワイン*/ + (21*count6)/*日本酒*/) / 7 /*体重(70kg*0.1)*/
+            val weigthDate = intent.getFloatExtra("data1", 0f)
+            val weigthResult = weigthDate * 0.1f
+
+            val countresult =(((18f*count)/*泡盛 */ + (16f*count2)/*ビール*/ + (22f*count3)/*チューハイ*/ +
+                    (22f*count4)/*ハ8イボール*/ + (11f*count5)/*ワイン*/ + (21f*count6)/*日本酒*/) / weigthResult)/*体重(70kg*0.1)*/
+
+            println(countresult)
             intent.putExtra("test", countresult)
+            startActivity(intent)
+        }
+
+        weightButton.setOnClickListener {
+            val intent = Intent(this, WeightActivity::class.java)
             startActivity(intent)
         }
 
