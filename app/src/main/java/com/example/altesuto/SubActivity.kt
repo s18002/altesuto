@@ -37,6 +37,10 @@ class SubActivity : AppCompatActivity() {
                 val intent = Intent(this, SubActivity::class.java)
                 startActivity(intent)
             }
+            R.id.weight -> {
+                val intent = Intent(this, WeightActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

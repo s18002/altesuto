@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_weight.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, SubActivity::class.java)
                 startActivity(intent)
             }
+            R.id.weight -> {
+                val intent = Intent(this, WeightActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -45,11 +50,11 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
 
-            val weigthDate = intent.getFloatExtra("data1", 0f)
-            val weigthResult = weigthDate * 0.1f
+            val weightDate = intent.getFloatExtra("data1", 0f)
+            val weightResult = weightDate * 0.1
 
             val countresult =(((18f*count)/*泡盛 */ + (16f*count2)/*ビール*/ + (22f*count3)/*チューハイ*/ +
-                    (22f*count4)/*ハ8イボール*/ + (11f*count5)/*ワイン*/ + (21f*count6)/*日本酒*/) / weigthResult)/*体重(70kg*0.1)*/
+                    (22f*count4)/*ハ8イボール*/ + (11f*count5)/*ワイン*/ + (21f*count6)/*日本酒*/) / weightResult)/*体重(70kg*0.1)*/
 
             println(countresult)
             intent.putExtra("test", countresult)

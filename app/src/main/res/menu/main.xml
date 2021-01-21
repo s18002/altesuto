@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/account"
-        android:title="アカウント" />
+        android:id="@+id/weight"
+        android:title="体重入力" />
     <item
         android:id="@+id/input"
         android:title="お酒入力" />
