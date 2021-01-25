@@ -27,7 +27,7 @@ class SubActivity : AppCompatActivity() {
             textView8.text = "0:00:00"
         }
     }
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean{
+    override fun onOptionsItemSelected(item: MenuItem): Boolean{
         when(item?.itemId) {
             R.id.input -> {
                 val intent = Intent(this, MainActivity::class.java)
@@ -39,6 +39,10 @@ class SubActivity : AppCompatActivity() {
             }
             R.id.weight -> {
                 val intent = Intent(this, WeightActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.game -> {
+                val intent = Intent(this, PuzzlegameActivity::class.java)
                 startActivity(intent)
             }
         }

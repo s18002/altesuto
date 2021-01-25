@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Half.toFloat
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.SeekBar
@@ -20,9 +21,17 @@ class WeightActivity : AppCompatActivity() {
 
         Button.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
-            intent.putExtra("data1", weight.id)
+            val weightStr = weight.text.toString()
+            val weightInt = weightStr.toInt()
+            intent.putExtra("data1", weightInt)
             startActivity(intent)
         }
+        /*val weigthStr = 体重のテキストID.text.toString()
+
+        val weigthInt = weigthStr.toInt()
+
+        intentのweigth?.idのとこweigthIntにする
+         */
 
         spinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -78,5 +87,28 @@ class WeightActivity : AppCompatActivity() {
             putInt("HEIGHT", weight.text.toString().toInt())
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean{
+        when(item?.itemId) {
+            R.id.input -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.time -> {
+                val intent = Intent(this, SubActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.weight -> {
+                val intent = Intent(this, WeightActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.game -> {
+                val intent = Intent(this, PuzzlegameActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
 

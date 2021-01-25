@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, WeightActivity::class.java)
                 startActivity(intent)
             }
+            R.id.game -> {
+                val intent = Intent(this, PuzzlegameActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
