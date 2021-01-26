@@ -2,6 +2,7 @@ package com.example.altesuto
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
@@ -21,6 +22,11 @@ class ResultActivity : AppCompatActivity() {
         // 結果に合わせて表示切り替え ////////
         if (!result) ivResult.setImageResource(R.drawable.result_b2)
         // import android.R;があるとRがローカルではなくandroidを指定するためdrawbleから参照できなくなる
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean{

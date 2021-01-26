@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_weight.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,11 +53,11 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             val intent = Intent(applicationContext, SubActivity::class.java)
 
-            val weightDate = intent.getFloatExtra("data1", 0f)
-            val weightResult = weightDate * 0.1
+            //val weightDate = intent.getFloatExtra("data1", 0f)
+            //val weightResult = weightDate * 0.1
 
             val countresult =(((18f*count)/*泡盛 */ + (16f*count2)/*ビール*/ + (22f*count3)/*チューハイ*/ +
-                    (22f*count4)/*ハ8イボール*/ + (11f*count5)/*ワイン*/ + (21f*count6)/*日本酒*/) / weightResult)/*体重(70kg*0.1)*/
+                    (22f*count4)/*ハ8イボール*/ + (11f*count5)/*ワイン*/ + (21f*count6)/*日本酒*/) / 7f)/*体重(70kg*0.1)*/
 
             println(countresult)
             intent.putExtra("test", countresult)
@@ -162,6 +161,5 @@ class MainActivity : AppCompatActivity() {
             count6 -= 1
             textView6.text = count6.toString()
         }
-
     }
 }

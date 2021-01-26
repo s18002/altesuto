@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Half.toFloat
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
@@ -21,12 +22,17 @@ class WeightActivity : AppCompatActivity() {
 
         Button.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
-            val weightStr = weight.text.toString()
-            val weightInt = weightStr.toInt()
+            val weightInt = weight.text
+            println(weightInt)
             intent.putExtra("data1", weightInt)
             startActivity(intent)
         }
+
         /*val weigthStr = 体重のテキストID.text.toString()
+
+        println(countresult)
+            intent.putExtra("test", countresult)
+            startActivity(intent)
 
         val weigthInt = weigthStr.toInt()
 
@@ -86,6 +92,10 @@ class WeightActivity : AppCompatActivity() {
         pref.edit {
             putInt("HEIGHT", weight.text.toString().toInt())
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean{

@@ -2,6 +2,8 @@ package com.example.altesuto
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +13,7 @@ import java.util.*
 class PlayActivity : AppCompatActivity() {
     // 問題データ    ///////////////////////////////////
     var ans =
-        arrayOf("鷺", "鶏", "鷲", "梟", "鷹", "鳩", "烏", "鶴", "燕", "隼")
+        arrayOf("烏", "鶏", "鷲", "梟", "鷹", "鳩", "鷺", "鶴", "燕")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,5 +50,31 @@ class PlayActivity : AppCompatActivity() {
         // 画面切り替え
         startActivity(intent)
         finish()
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean{
+        when(item?.itemId) {
+            R.id.input -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.time -> {
+                val intent = Intent(this, SubActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.weight -> {
+                val intent = Intent(this, WeightActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.game -> {
+                val intent = Intent(this, PuzzlegameActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
