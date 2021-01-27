@@ -20,7 +20,7 @@ class ResultActivity : AppCompatActivity() {
         val result = intent.getBooleanExtra("result", false)
 
         // 結果に合わせて表示切り替え ////////
-        if (!result) ivResult.setImageResource(R.drawable.result_b2)
+        if (!result) ivResult.setImageResource(R.drawable.result_b3)
         // import android.R;があるとRがローカルではなくandroidを指定するためdrawbleから参照できなくなる
     }
 
